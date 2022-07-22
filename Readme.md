@@ -31,17 +31,26 @@ $ npm i mongoose
 Instalar este paquete para poder leer archivos con extension env.
 $ npm i dotenv
 
-
+Para instalar CORS:
 $ npm i cors
 
 Github:
 ========
 git init
-git add .
-git commit -m "CORS y Express - Primer commit"
 git remote add origin https://github.com/joegentille/admin-pro-backend.git
 git branch -M main
+git add .
+git commit -m "CORS y Express - Primer commit"
 git push -u origin main
 
 Para instalar los modulos de node:
 $ npm install
+
+Validaciones:
+$ npm i express-validator
+
+Para encriptar contraseñas:
+$ npm i bcryptjs
+
+Para usar JWT Json Web Token:
+$ npm i jsonwebtoken

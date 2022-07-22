@@ -11,17 +11,17 @@ const app = express();
 // Configurar CORS
 app.use(cors()); // Luego de instalar el paquete cors
 
+// Lectura y parseo del body 
+app.use(express.json());
+
 // Base de datos
 dbConnection();
 
 console.log(process.env); // #Nota: con esto veo todas las variables de entorno de node.
 
-app.get( '/', (req, res) => {
-    res.json({
-        ok: true,
-        msg: 'Hola Joe'
-    })
-});
+// Rutas
+app.use('/api/usuario', require('./routes/usuariosRoutes'));
+app.use('/api/login', require('./routes/authRoutes'));
 
 app.listen( process.env.PORT, () => {
     console.log('Servidor corriendo en puerto: ' + process.env.PORT);
