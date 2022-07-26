@@ -54,3 +54,11 @@ $ npm i bcryptjs
 
 Para usar JWT Json Web Token:
 $ npm i jsonwebtoken
+
+Instalar express-fileupload:
+https://www.npmjs.com/package/express-fileupload
+$ npm i express-fileupload
+
+Instalar uuid:
+https://www.npmjs.com/package/uuid
+$ npm i uuid

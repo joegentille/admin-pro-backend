@@ -17,13 +17,33 @@ const getUserName = async (req, res) => {
 
 const getUsuarios = async (req, res) => {    
 
-    const usuarios = await Usuario.find();
+    const desde = Number(req.query.desde) || 0; // #Nota: vemos que usamos query cuando se tiene ?desde=5 (http://localhost:3005/api/usuario?desde=5)
+
+    //console.log(desde);
+
+    // const usuarios = await Usuario.find()
+    //                               .skip(desde)
+    //                               .limit( 5 );
+
+    // const total = await Usuario.count();                        
+
+    // Lo estoy desesctructurando para indicarle que el primero es usuarios y el segundo es total
+    // Es lo mismo a lo anterior, solo que se ejecutan de manera simultanea
+    const [ usuarios, total ] = await Promise.all([ 
+        await Usuario
+                    .find()  // .find({}, 'nombre email role google img')
+                    .skip(desde)
+                    .limit( 5 ),
+        //Usuario.count()
+        Usuario.countDocuments()
+    ]);
 
     res.json({
         ok: true,
         //msg: 'Get Usuarios'
         usuarios,
         uid: req.uid, // es el uid del usuario que hizo la peticion, viene de validar-jwt, lo agrega en usuariosRoutes 
+        total,
     });
 }
 

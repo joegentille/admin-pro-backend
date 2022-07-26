@@ -22,6 +22,11 @@ console.log(process.env); // #Nota: con esto veo todas las variables de entorno 
 // Rutas
 app.use('/api/usuario', require('./routes/usuariosRoutes'));
 app.use('/api/login', require('./routes/authRoutes'));
+app.use('/api/hospitales', require('./routes/hospitalesRoutes'));
+app.use('/api/medicos', require('./routes/medicosRoutes'));
+app.use('/api/todo', require('./routes/busquedasRoutes'));
+app.use('/api/uploads', require('./routes/uploadsRoutes'));
+
 
 app.listen( process.env.PORT, () => {
     console.log('Servidor corriendo en puerto: ' + process.env.PORT);
