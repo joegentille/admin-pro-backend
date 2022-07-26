@@ -62,3 +62,6 @@ $ npm i express-fileupload
 Instalar uuid:
 https://www.npmjs.com/package/uuid
 $ npm i uuid
+
+Google Signin
+npm install google-auth-library --save
